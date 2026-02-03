@@ -53,11 +53,11 @@
         form.addEventListener('submit', (e) => {
             e.preventDefault()
             socket.emit('sent-message', messageInput.value)
-            handleMessages(messageInput.value, 'right')
+            handleMessages(`You: ${messageInput.value}`, 'right')
             messageInput.value = ''
         })
-        socket.on('client-message', message => {
-            handleMessages(message, 'left')
+        socket.on('client-message', data => {
+            handleMessages(`${data.username}: ${data.message}`, 'left')
         })
     </script>
 </body>
