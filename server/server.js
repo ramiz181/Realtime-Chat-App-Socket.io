@@ -18,7 +18,8 @@ io.on('connection', socket => {
 
     socket.on('new-user-joined', user => {
         users[socket.id] = user
-        socket.broadcast.emit('user-joined', `${user} just joined`)
+        console.log("Here", users[socket.id]);
+        socket.broadcast.emit('user-joined', `${user} just joined the chat`)
     })
 
     socket.on('sent-message', message => {

@@ -21,7 +21,7 @@ body {
     background-color: #ffffff;
     margin: auto;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     padding: 15px;
     overflow-y: auto;
 }
@@ -91,4 +91,22 @@ body {
 
 .btn:hover {
     background-color: #006fd6;
+}
+
+/* Joined / system message */
+.joined-message {
+    width: 100%;
+    text-align: center;
+    clear: both;
+    margin: 12px 0;
+    font-size: 13px;
+    color: #666;
+}
+
+.joined-message span {
+    background: #f1f1f1;
+    padding: 6px 14px;
+    border-radius: 20px;
+    display: inline-block;
+    
 }

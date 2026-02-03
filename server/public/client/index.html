@@ -12,10 +12,7 @@
 
     <body>
         <div class="container">
-            <div id="chat-box">
-                <div class="message left">Hi Ramiz</div>
-                <div class="message right">Hello Wasif, How are you?</div>
-            </div>
+            <div id="chat-box"></div>
         </div>
 
         <div class="send">
@@ -24,7 +21,6 @@
                 <button class="btn" type="submit">Send</button>
             </form>
         </div>
-        <div id="test"></div>
     </body>
 
     <script src="/socket.io/socket.io.js"></script>
@@ -37,31 +33,33 @@
         const chatBox = document.getElementById('chat-box')
         const test = document.getElementById('test')
 
-        const username = 'ramiz'
+        function handleMessages(message, classList) {
+            const messageField = document.createElement('div')
+            messageField.classList.add('message')
+            messageField.classList.add(classList)
+            messageField.textContent = message
+            chatBox.append(messageField)
+        }
 
+        const username = prompt("Enter your name to join the chat")
 
         socket.emit('new-user-joined', `${username}`)
         socket.on('user-joined', joined => {
-            test.textContent = joined
+            const joinContainer = document.createElement('div')
+            joinContainer.classList.add('joined-message')
+            joinContainer.innerHTML = `<span>${joined}</span>`
+            chatBox.append(joinContainer)
         })
-
         form.addEventListener('submit', (e) => {
             e.preventDefault()
             socket.emit('sent-message', messageInput.value)
+            handleMessages(messageInput.value, 'right')
             messageInput.value = ''
         })
-
         socket.on('client-message', message => {
-            const div = document.createElement('div')
-            div.classList.add('message')
-            div.classList.add('left')
-            div.innerText = message
-            chatBox.append(div)
+            handleMessages(message, 'left')
         })
-
-
     </script>
-
 </body>
 
 </html>
