@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Chat container */
+.container {
+    width: 70%;
+    max-width: 800px;
+    height: 60vh;
+    background-color: #ffffff;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    padding: 15px;
+    overflow-y: auto;
+}
+
+/* Message bubbles */
+.message {
+    max-width: 60%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+/* Left message */
+.left {
+    background-color: #e4e6eb;
+    color: #000;
+    float: left;
+    clear: both;
+    border-bottom-left-radius: 0;
+}
+
+/* Right message */
+.right {
+    background-color: #0084ff;
+    color: #fff;
+    float: right;
+    clear: both;
+    border-bottom-right-radius: 0;
+}
+
+/* Send section */
+.send {
+    width: 70%;
+    max-width: 800px;
+    margin: 15px auto;
+}
+
+#send-container {
+    display: flex;
+    gap: 10px;
+}
+
+/* Input */
+#messageInp {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+}
+
+/* Button */
+.btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #0084ff;
+    color: white;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #006fd6;
+}
